@@ -13,6 +13,6 @@ RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/te
 RUN echo "shopt -s checkwinsize" >> ~/.bashrc
 
 # execute `bat` after a pause so that tty can detect the current window size
-ENTRYPOINT [ "sh", "-c", "bat $0 $@" ]
+ENTRYPOINT [ "sh", "-c", "sleep 0.1; bat $0 $@" ]
 
 # docker build -t bat .
