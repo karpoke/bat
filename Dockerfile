@@ -7,7 +7,14 @@ FROM alpine:latest
 
 WORKDIR /myapp
 
-RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing bash less bat
+RUN apk update && \
+    apk upgrade && \
+    apk add \
+        --no-cache \
+        --repository http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+        bash \
+        bat \
+        less
 
 # configure bash to check the window size after each command
 RUN echo "shopt -s checkwinsize" >> ~/.bashrc
